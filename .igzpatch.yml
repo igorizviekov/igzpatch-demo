@@ -1,0 +1,55 @@
+version: 1
+enabled: true
+
+triggers:
+  labels: [igz:fix]
+  commands: ['@IgzPatch fix', '@IgzPatch status', '@IgzPatch stop']
+
+repo:
+  default_branch: main
+  language: typescript
+
+branch:
+  prefix: igzpatch
+
+pull_request:
+  draft: true
+  title_template: 'IgzPatch demo: fix issue #{issue_number}'
+  body_policy: evidence_summary
+
+sandbox:
+  image: node:22-bookworm
+  setup_network: enabled
+  run_network: disabled
+  cpu_limit: 2
+  memory_mb: 2048
+  timeout_minutes: 15
+  setup: [npm ci]
+
+checks:
+  required: [npm test, npm run typecheck, npm run build]
+  optional: []
+
+paths:
+  allowed: [src/**]
+  blocked: [.env*, .github/workflows/**, tests/**, seed/**, scripts/**]
+
+issue_scope:
+  max_files_changed: 4
+  max_diff_lines: 160
+  requires_acceptance_criteria: true
+
+agent:
+  max_iterations: 6
+  read_only_first_pass: true
+  open_pr_as_draft: true
+  require_manual_merge: true
+
+routing:
+  primary: { provider: codex, model: gpt-5.4 }
+
+audit:
+  comment_strategy: marker_backed_single_comment
+  store_tool_calls: true
+  store_command_logs: true
+  redact_patterns: [sk-, ghp_, github_pat_]
