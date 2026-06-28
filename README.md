@@ -1,10 +1,10 @@
 # RelayOps Incident Board
 
-A deliberately small, production-shaped Next.js dashboard used to demonstrate IgzPatch issue-to-draft-PR runs.
+A deliberately small, production-shaped Next.js dashboard used to demonstrate [IgzPatch](https://github.com/igorizviekov/igz-patch) issue-to-draft-PR runs.
 
 ## Seeded scenarios
 
-Create the files in `seed/issues` as GitHub issues in numeric order so their issue numbers remain `#1` through `#5`. Add the `igz:fix` label to one issue at a time.
+The files in `seed/issues` are published as GitHub issues `#1` through `#5`. Add the `igz:fix` label to one issue at a time.
 
 | Issue | Failure type | Deterministic gate |
 | --- | --- | --- |
