@@ -28,6 +28,14 @@ export function countActiveIncidents(incidents: Incident[]): number {
     incidents.filter((incident) => incident.status === "resolved").length;
 }
 
-export function isSlaBreached(dueAt: string, now = new Date()): boolean {
-  return new Date(dueAt).getTime() < now.getTime();
+export function isSlaBreached(
+  dueAt: string,
+  now = new Date(),
+  status?: IncidentStatus,
+): boolean {
+  if (status === "resolved") {
+    return false;
+  }
+
+  return new Date(dueAt).getTime() <= now.getTime();
 }

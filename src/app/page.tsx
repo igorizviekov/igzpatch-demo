@@ -55,7 +55,7 @@ export default function Home() {
                 <div><dt>Status</dt><dd>{incident.status}</dd></div>
                 <div>
                   <dt>SLA</dt>
-                  <dd>{isSlaBreached(incident.dueAt, snapshotTime) ? "Breached" : "On track"}</dd>
+                  <dd>{isSlaBreached(incident.dueAt, snapshotTime, incident.status) ? "Breached" : "On track"}</dd>
                 </div>
               </dl>
             </article>
