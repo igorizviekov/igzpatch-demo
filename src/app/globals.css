@@ -86,3 +86,15 @@ dl { display: grid; gap: 12px; margin: 0; }
 dl div { display: flex; justify-content: space-between; gap: 16px; }
 dt, dd { margin: 0; }
 dd { text-align: right; }
+
+@media (max-width: 720px) {
+  .toolbar {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters { flex-wrap: wrap; }
+
+  .incidentGrid { grid-template-columns: 1fr; }
+}
