@@ -86,3 +86,7 @@ dl { display: grid; gap: 12px; margin: 0; }
 dl div { display: flex; justify-content: space-between; gap: 16px; }
 dt, dd { margin: 0; }
 dd { text-align: right; }
+
+@media (max-width: 720px) {
+  .incidentGrid { grid-template-columns: 1fr; }
+}
