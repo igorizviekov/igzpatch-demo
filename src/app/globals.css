@@ -56,9 +56,9 @@ h3 { margin: 22px 0 28px; font-size: 1.25rem; line-height: 1.3; }
   padding: 24px;
   background: rgba(8, 21, 38, 0.9);
 }
-.toolbar { width: 900px; gap: 24px; margin-bottom: 22px; }
+.toolbar { width: 100%; max-width: 100%; flex-wrap: wrap; gap: 24px; margin-bottom: 22px; }
 .toolbar p { margin-bottom: 0; }
-.filters { gap: 8px; }
+.filters { flex-wrap: wrap; gap: 8px; }
 .filters button {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
@@ -86,3 +86,7 @@ dl { display: grid; gap: 12px; margin: 0; }
 dl div { display: flex; justify-content: space-between; gap: 16px; }
 dt, dd { margin: 0; }
 dd { text-align: right; }
+
+@media (max-width: 640px) {
+  .toolbar { flex-wrap: wrap; }
+}
