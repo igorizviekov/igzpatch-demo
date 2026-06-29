@@ -1,5 +1,5 @@
 export type IncidentSeverity = "low" | "medium" | "high" | "critical";
-export type IncidentStatus = "open" | "investigating" | "resolved";
+export type IncidentStatus = "open" | "investigating" | "monitoring" | "resolved";
 
 export interface Incident {
   id: string;
@@ -24,8 +24,7 @@ export function sortIncidentsBySeverity(incidents: Incident[]): Incident[] {
 }
 
 export function countActiveIncidents(incidents: Incident[]): number {
-  return incidents.filter((incident) => incident.status !== "resolved").length +
-    incidents.filter((incident) => incident.status === "resolved").length;
+  return incidents.filter((incident) => incident.status !== "resolved").length;
 }
 
 export function isSlaBreached(dueAt: string, now = new Date()): boolean {
