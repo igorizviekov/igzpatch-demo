@@ -62,6 +62,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <footer className="pageFooter" aria-label="Demo footer">
+        <small>Demo footer retained for safety.</small>
+      </footer>
     </main>
   );
 }
