@@ -34,7 +34,7 @@ export default function Home() {
 
       <section className="board">
         <div className="toolbar">
-          <div><h2>Live queue</h2><p>Sorted by operational severity</p></div>
+          <div><h2>Live queue</h2><p>Prioritized by operational severity</p></div>
           <div className="filters" aria-label="Incident filters">
             <button className="active" type="button">All</button>
             <button type="button">Open</button>
