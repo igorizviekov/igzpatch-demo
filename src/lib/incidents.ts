@@ -19,15 +19,14 @@ const severityRank: Record<IncidentSeverity, number> = {
 
 export function sortIncidentsBySeverity(incidents: Incident[]): Incident[] {
   return [...incidents].sort(
-    (left, right) => severityRank[left.severity] - severityRank[right.severity],
+    (left, right) => severityRank[right.severity] - severityRank[left.severity],
   );
 }
 
 export function countActiveIncidents(incidents: Incident[]): number {
-  return incidents.filter((incident) => incident.status !== "resolved").length +
-    incidents.filter((incident) => incident.status === "resolved").length;
+  return incidents.filter((incident) => incident.status !== "resolved").length;
 }
 
 export function isSlaBreached(dueAt: string, now = new Date()): boolean {
-  return new Date(dueAt).getTime() < now.getTime();
+  return new Date(dueAt).getTime() <= now.getTime();
 }
