@@ -19,7 +19,7 @@ const severityRank: Record<IncidentSeverity, number> = {
 
 export function sortIncidentsBySeverity(incidents: Incident[]): Incident[] {
   return [...incidents].sort(
-    (left, right) => severityRank[left.severity] - severityRank[right.severity],
+    (left, right) => severityRank[right.severity] - severityRank[left.severity],
   );
 }
 
